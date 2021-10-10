@@ -1,5 +1,6 @@
 package com.example.xpns;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -11,23 +12,36 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class register extends AppCompatActivity implements View.OnClickListener {
 
     private Button registerUserButton;
     private EditText username,userEmail,userPhone,userPassword,userConfirmPassword;
     private FirebaseAuth mAuth;
+    FirebaseFirestore fStore ;
+    String userID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
 
-        registerUserButton = (Button) findViewById(R.id.register_button);
+        mAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+
+        registerUserButton = (Button) findViewById(R.id.login_button);
         registerUserButton.setOnClickListener(this);
 
         username = (EditText) findViewById(R.id.user_name);
@@ -40,8 +54,8 @@ public class register extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.register_button:
-//                registerUser();
+            case R.id.login_button:
+                registerUser();
                 break;
         }
     }
@@ -101,11 +115,39 @@ public class register extends AppCompatActivity implements View.OnClickListener 
             return;
         }
 
-//        mAuth.createUserWithEmailAndPassword(emailText,passwordText)
-//                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if(task.isSuccessful()){
+
+
+        mAuth.createUserWithEmailAndPassword(emailText,passwordText)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(register.this,"User Registration Success!",Toast.LENGTH_SHORT).show();
+
+                            userID = mAuth.getCurrentUser().getUid();
+
+                            DocumentReference documentReference = fStore.collection("users").document(userID);
+
+                            Map<String,Object> user = new HashMap<>();
+                            user.put("fName",usernameText);
+                            user.put("email",emailText);
+                            user.put("mobile",phoneText);
+
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(register.this,"User Full Update!",Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+
+
+                            startActivity(new Intent(register.this,home.class));
+
+
+
+
+//
 //                            User user = new User(usernameText,emailText,phoneText);
 //
 //                            FirebaseDatabase.getInstance().getReference("Users")
@@ -121,11 +163,12 @@ public class register extends AppCompatActivity implements View.OnClickListener 
 //                                    }
 //                                }
 //                            });
-//                        }else{
-//                            Toast.makeText(register.this,"User Registration Failed",Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
+
+                        }else{
+                            Toast.makeText(register.this,"User Registration Failed!",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
 
 
