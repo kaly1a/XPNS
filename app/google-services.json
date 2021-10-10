@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "243120610114",
+    "project_id": "xpns-f64d1",
+    "storage_bucket": "xpns-f64d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243120610114:android:99296501814294ad5046db",
+        "android_client_info": {
+          "package_name": "com.example.xpns"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243120610114-fqp170gmqf0u5cj344t908vnf9uul37m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC3Fl878QHBXblRl4Mc3IPXh6QxFpqiDc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243120610114-fqp170gmqf0u5cj344t908vnf9uul37m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
