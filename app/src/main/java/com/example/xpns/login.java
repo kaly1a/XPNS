@@ -51,7 +51,6 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             case R.id.login_button:
                 userLogin();
                 break;
-
         }
     }
 
@@ -91,7 +90,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                 if(task.isSuccessful()){
                     progressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(login.this,"User has been successfully logged in",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(login.this,profileActivity.class));
+                    startActivity(new Intent(login.this,dashboard.class));
 
                 }else{
                     progressBar.setVisibility(View.INVISIBLE);

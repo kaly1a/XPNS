@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark"
+    tools:context=".add_expense">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="264dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="ADD EXPENSE"
+        android:textAlignment="center"
+        android:textColor="@color/primary"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="258dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="96dp"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textPersonName"
+        android:textColor="#fafafa"
+        android:textColorHint="#FAFAFA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="258dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Amount"
+        android:inputType="textPersonName"
+        android:textColor="#fafafa"
+        android:textColorHint="#FAFAFA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="254dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/rounded_corners"
+        android:text="ADD"
+        android:textColor="#1B1B1B"
+        android:onClick="addExpenseButton"
+        app:backgroundTint="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amount" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupSplitExpense"
+        android:layout_width="255dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amount">
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:text="Own Expense"
+            android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:text="Split Expense"
+            android:textColor="#FFFFFF" />
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
