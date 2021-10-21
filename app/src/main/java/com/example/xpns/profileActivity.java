@@ -18,8 +18,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class profileActivity extends AppCompatActivity {
 
-    private EditText employeeName;
-    private Button sendDatabtn;
+//    private EditText employeeName;
+//    private Button sendDatabtn;
 
     FirebaseDatabase firebaseDatabase;
 
@@ -36,7 +36,7 @@ public class profileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        employeeName = findViewById(R.id.employeeNameBox);
+//        employeeName = findViewById(R.id.employeeNameBox);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -44,23 +44,23 @@ public class profileActivity extends AppCompatActivity {
 
         user = new User();
 
-        sendDatabtn = findViewById(R.id.idBtnSendData);
+//        sendDatabtn = findViewById(R.id.idBtnSendData);
 
-        sendDatabtn.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String name = employeeName.getText().toString();
-
-                if(TextUtils.isEmpty(name)){
-                    Toast.makeText(profileActivity.this, "Please add some data.", Toast.LENGTH_SHORT).show();
-                }else{
-
-                    addDatatoFirebase(name);
-
-                }
-            }
-        }));
+//        sendDatabtn.setOnClickListener((new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                String name = employeeName.getText().toString();
+//
+//                if(TextUtils.isEmpty(name)){
+//                    Toast.makeText(profileActivity.this, "Please add some data.", Toast.LENGTH_SHORT).show();
+//                }else{
+//
+//                    addDatatoFirebase(name);
+//
+//                }
+//            }
+//        }));
     }
 
 
