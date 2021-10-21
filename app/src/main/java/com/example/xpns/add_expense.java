@@ -1,6 +1,7 @@
 package com.example.xpns;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -93,6 +94,7 @@ public class add_expense extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void unused) {
                     Toast.makeText(add_expense.this, "Added Expense!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(add_expense.this,dashboard.class));
                 }
             });
         }

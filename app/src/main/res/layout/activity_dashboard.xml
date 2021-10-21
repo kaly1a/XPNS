@@ -8,10 +8,11 @@
     tools:context=".dashboard">
 
     <TextView
+        android:id="@+id/usernameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/imageButton"
-        android:layout_alignRight="@+id/imageButton"
+        android:layout_alignEnd="@+id/logOut"
+        android:layout_alignRight="@+id/logOut"
         android:layout_alignParentTop="true"
         android:layout_marginStart="24dp"
         android:fontFamily="@font/montserrat_bold"
@@ -22,7 +23,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logOut" />
 
     <ImageButton
-        android:id="@+id/logOut"
+        android:id="@+id/profileButton"
         android:layout_width="60dp"
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
@@ -40,8 +41,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/imageButton"
-        android:layout_alignRight="@+id/imageButton"
+        android:layout_alignEnd="@+id/logOut"
+        android:layout_alignRight="@+id/logOut"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="28dp"
         android:fontFamily="@font/montserrat_bold"
@@ -49,10 +50,10 @@
         android:textColor="@color/primary"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/logOut" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/logOut"
         android:layout_width="60dp"
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
