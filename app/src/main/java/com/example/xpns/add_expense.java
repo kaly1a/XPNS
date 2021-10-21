@@ -47,7 +47,6 @@ public class add_expense extends AppCompatActivity {
         description = (TextView) findViewById(R.id.description);
         amount = (TextView) findViewById(R.id.amount);
         submitButton = (Button) findViewById(R.id.submitButton);
-        radioGroup = (RadioGroup) findViewById(( R.id.radioGroupSplitExpense ));
 
         eText = (TextView) findViewById(R.id.editTextDate);
         eText.setInputType(InputType.TYPE_NULL);
