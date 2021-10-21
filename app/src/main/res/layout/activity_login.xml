@@ -26,7 +26,7 @@
         android:layout_marginTop="248dp"
         android:fontFamily="@font/montserrat"
         android:text="Welcome Back!"
-        android:textColor="#3C3F41"
+        android:textColor="#CACACA"
         android:textSize="60px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,9 +37,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Email"
         android:inputType="textPersonName"
-        android:text="Email@gmail.com"
         android:textColor="#FAFAFA"
+        android:textColorHint="#6A6A6A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -53,9 +54,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
-        android:text="Password"
         android:textColor="#FAFAFA"
+        android:textColorHint="#6A6A6A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +75,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_pswd"
-        app:layout_constraintVertical_bias="0.128" />
+        app:layout_constraintVertical_bias="0.337" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -84,4 +86,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Forgot Password?"
+        android:textColor="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="458dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
