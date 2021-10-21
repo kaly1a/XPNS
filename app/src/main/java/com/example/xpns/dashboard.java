@@ -34,11 +34,11 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                 startActivity(new Intent(this, com.example.xpns.add_expense.class));
                 Toast.makeText(this,"Add exp button Working",Toast.LENGTH_SHORT).show();
                 break;
-//            case R.id.login:
-//                startActivity(new Intent(this, com.example.xpns.login.class));
-//                Toast.makeText(this,"Login button Working",Toast.LENGTH_SHORT).show();
-//                break;
-//
+            case R.id.expenses:
+                startActivity(new Intent(this, com.example.xpns.expenses.class));
+                Toast.makeText(this,"Expenses button Working",Toast.LENGTH_SHORT).show();
+                break;
+
 //            case R.id.dashButton:
 //                startActivity(new Intent(this, com.example.xpns.dashboard.class));
 //                Toast.makeText(this,"Dashboard button Working",Toast.LENGTH_SHORT).show();
