@@ -13,6 +13,7 @@ public class home extends AppCompatActivity implements View.OnClickListener{
 
     private TextView register;
     private TextView login;
+    private TextView dashgo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class home extends AppCompatActivity implements View.OnClickListener{
         register.setOnClickListener(this);
         login = (TextView) findViewById(R.id.login);
         login.setOnClickListener(this);
+        dashgo = (TextView) findViewById(R.id.dashButton);
+        dashgo.setOnClickListener(this);
     }
 //    public void goToLogin(View view) {
 //        Intent intent = new Intent(home.this, login.class);
@@ -49,9 +52,9 @@ public class home extends AppCompatActivity implements View.OnClickListener{
                 break;
 
             case R.id.dashButton:
-                startActivity(new Intent(this, com.example.xpns.dashboard.class));
                 Toast.makeText(this,"Dashboard button Working",Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(this,com.example.xpns.dashboard.class));
+
 
         }
 

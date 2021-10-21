@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,7 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 public class login extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextEmail,editTextPassword;
+
     private Button signIn;
+    private TextView forgetPass;
 
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
@@ -37,6 +40,9 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
         editTextEmail = (EditText) findViewById(R.id.user_email);
         editTextPassword  = (EditText) findViewById(R.id.user_pswd);
+        forgetPass  = (TextView) findViewById(R.id.forgetPass);
+
+        forgetPass.setOnClickListener(this);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.INVISIBLE);
@@ -51,7 +57,29 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             case R.id.login_button:
                 userLogin();
                 break;
+            case R.id.forgetPass:
+                resetPassword();
+
         }
+    }
+
+    private void resetPassword() {
+
+//        FirebaseAuth auth = FirebaseAuth.getInstance();
+//        String emailAddress = editTextEmail.getText().toString().trim();
+//
+//        auth.sendPasswordResetEmail(emailAddress)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Toast.makeText(login.this,"Email Sent",Toast.LENGTH_SHORT).show();
+//                        }else{
+//                            Toast.makeText(login.this,"Email Not Sent",Toast.LENGTH_SHORT).show();
+//
+//                        }
+//                    }
+//                });
     }
 
     private void userLogin() {
