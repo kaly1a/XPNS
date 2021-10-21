@@ -25,6 +25,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/button5"
+        android:layout_width="141dp"
+        android:layout_height="75dp"
+        android:background="@drawable/rounded_corners"
+        android:text="Create Group"
+        android:textColor="#1B1B1B"
+        app:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <Button
         android:id="@+id/addExpense"
         android:layout_width="141dp"
         android:layout_height="75dp"
@@ -32,62 +46,38 @@
         android:text="Add Expense"
         android:textColor="#1B1B1B"
         app:backgroundTint="@color/primary"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="288dp" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="141dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/rounded_corners"
-        android:text="Create Group"
-        android:textColor="#1B1B1B"
-        app:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="141dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_corners"
-        android:text="Split Expense"
-        android:textColor="#1B1B1B"
-        app:backgroundTint="@color/primary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/display" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="141dp"
         android:layout_height="75dp"
-        android:layout_marginTop="288dp"
         android:background="@drawable/rounded_corners"
         android:text="Request Loan"
         android:textColor="#1B1B1B"
         app:backgroundTint="@color/primary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toStartOf="@+id/addExpense"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/display" />
 
     <Button
         android:id="@+id/expenses"
         android:layout_width="141dp"
         android:layout_height="75dp"
-        android:layout_marginTop="32dp"
         android:background="@drawable/rounded_corners"
         android:onClick="onClick"
         android:text="Past Bills"
         android:textColor="#1B1B1B"
         app:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
@@ -95,14 +85,29 @@
         android:id="@+id/button4"
         android:layout_width="141dp"
         android:layout_height="75dp"
-        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_corners"
         android:text="Set Budget"
         android:textColor="#1B1B1B"
         app:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/addExpense" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="141dp"
+        android:layout_height="75dp"
+        android:background="@drawable/rounded_corners"
+        android:text="Split Expense"
+        android:textColor="#1B1B1B"
+        app:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
 
     <TextView
         android:id="@+id/textView3"
