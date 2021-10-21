@@ -33,10 +33,10 @@
         android:textColor="#1B1B1B"
         app:backgroundTint="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintEnd_toStartOf="@+id/button1"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/expenses" />
 
     <Button
         android:id="@+id/addExpense"
@@ -49,7 +49,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/display" />
 
     <Button
@@ -60,11 +60,11 @@
         android:text="Request Loan"
         android:textColor="#1B1B1B"
         app:backgroundTint="@color/primary"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toStartOf="@+id/addExpense"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/display" />
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <Button
         android:id="@+id/expenses"
@@ -75,11 +75,11 @@
         android:text="Past Bills"
         android:textColor="#1B1B1B"
         app:backgroundTint="@color/primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
         android:id="@+id/button4"
@@ -89,10 +89,10 @@
         android:text="Set Budget"
         android:textColor="#1B1B1B"
         app:backgroundTint="@color/primary"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintStart_toEndOf="@+id/expenses"
         app:layout_constraintTop_toBottomOf="@+id/addExpense" />
 
     <Button
@@ -103,11 +103,11 @@
         android:text="Split Expense"
         android:textColor="#1B1B1B"
         app:backgroundTint="@color/primary"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/expenses"
+        app:layout_constraintEnd_toStartOf="@+id/addExpense"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
+        app:layout_constraintTop_toBottomOf="@+id/display" />
 
     <TextView
         android:id="@+id/textView3"
