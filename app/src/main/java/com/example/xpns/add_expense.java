@@ -33,7 +33,7 @@ public class add_expense extends AppCompatActivity {
     private FirebaseAuth mAuth;
     RadioButton selectedRadioButton;
     DatePickerDialog picker;
-    EditText eText;
+    TextView eText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class add_expense extends AppCompatActivity {
         submitButton = (Button) findViewById(R.id.submitButton);
         radioGroup = (RadioGroup) findViewById(( R.id.radioGroupSplitExpense ));
 
-        eText = (EditText) findViewById(R.id.editTextDate);
+        eText = (TextView) findViewById(R.id.editTextDate);
         eText.setInputType(InputType.TYPE_NULL);
         eText.setOnClickListener(new View.OnClickListener() {
             @Override
