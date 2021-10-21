@@ -65,21 +65,21 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     private void resetPassword() {
 
-//        FirebaseAuth auth = FirebaseAuth.getInstance();
-//        String emailAddress = editTextEmail.getText().toString().trim();
-//
-//        auth.sendPasswordResetEmail(emailAddress)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                            Toast.makeText(login.this,"Email Sent",Toast.LENGTH_SHORT).show();
-//                        }else{
-//                            Toast.makeText(login.this,"Email Not Sent",Toast.LENGTH_SHORT).show();
-//
-//                        }
-//                    }
-//                });
+
+        String emailAddress = editTextEmail.getText().toString().trim();
+
+        mAuth.sendPasswordResetEmail(emailAddress)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(login.this,"Email Sent",Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(login.this,"Email Not Sent",Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
     }
 
     private void userLogin() {
