@@ -68,32 +68,33 @@ public class add_expense extends AppCompatActivity {
                 picker.show();
             }
 
+        });
+    }
 
-            public void addExpenseButton(View view) {
+    public void addExpenseButton(View view) {
 
-                int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
-                if (selectedRadioButtonId != -1) {
-                    selectedRadioButton = findViewById(selectedRadioButtonId);
-                    String selectedRbText = selectedRadioButton.getText().toString();
-                    userID = mAuth.getCurrentUser().getUid();
+        int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
+        if (selectedRadioButtonId != -1) {
+            selectedRadioButton = findViewById(selectedRadioButtonId);
+            String selectedRbText = selectedRadioButton.getText().toString();
+            userID = mAuth.getCurrentUser().getUid();
 //            textView.setText(selectedRbText + " is Selected");
 //            Toast.makeText(add_expense.this,userID + " User id Description -" + description.getText().toString() + " Amount-" + amount.getText().toString(),Toast.LENGTH_SHORT).show();
 
-                    DocumentReference documentReference = fStore.collection("expenses").document(userID);
+            DocumentReference documentReference = fStore.collection("expenses").document(userID);
 
-                    Map<String, Object> user = new HashMap<>();
-                    user.put("description", description.getText().toString());
-                    user.put("amount", amount.getText().toString());
-                    user.put("splitType", selectedRbText);
+            Map<String, Object> user = new HashMap<>();
+            user.put("description", description.getText().toString());
+            user.put("amount", amount.getText().toString());
+            user.put("splitType", selectedRbText);
+            user.put("date", eText.getText().toString().trim());
 
-                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(add_expense.this, "Added Expense!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Toast.makeText(add_expense.this, "Added Expense!", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
+            });
+        }
     }
 }
