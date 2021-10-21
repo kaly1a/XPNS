@@ -5,7 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2D2D2D"
-    tools:context=".profileActivity">
+    tools:context=".profileActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="91dp">
+
+    <TextView
+        android:id="@+id/mobNo"
+        android:layout_width="224dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="4dp"
+        android:hint="FUllerrs name"
+        android:text="Mobile"
+        android:textColor="#fafafa"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userFullName2" />
+
+    <TextView
+        android:id="@+id/fullName"
+        android:layout_width="224dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="4dp"
+        android:hint="FUllerrs name"
+        android:text="Full Name"
+        android:textColor="#fafafa"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userFullName12" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="224dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="4dp"
+        android:hint="FUllerrs name"
+        android:text="Email"
+        android:textColor="#fafafa"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userFullName3" />
 
     <TextView
         android:id="@+id/welcome_text2"
@@ -39,79 +80,40 @@
         android:id="@+id/userFullName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:text="Mobile No."
         android:textColor="#fafafa"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/userFullName31"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userFullName3" />
-
-    <TextView
-        android:id="@+id/userFullName21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Full Name"
-        android:textColor="#fafafa"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/userFullName12"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_text2" />
+        app:layout_constraintHorizontal_bias="0.276"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <TextView
         android:id="@+id/userFullName12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="56dp"
         android:hint="FUllerrs name"
         android:text="Full Name"
         android:textColor="#fafafa"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/userFullName21"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.293"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_text2" />
-
-    <TextView
-        android:id="@+id/mobile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mobile No."
-        android:textColor="#fafafa"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/userFullName2"
-        app:layout_constraintTop_toBottomOf="@+id/userFullName31" />
-
-    <TextView
-        android:id="@+id/userFullName31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="E-mail"
-        android:textColor="#fafafa"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/mobile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/userFullName3"
-        app:layout_constraintTop_toBottomOf="@+id/userFullName21" />
 
     <TextView
         android:id="@+id/userFullName3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+
         android:text="E-mail"
         android:textColor="#fafafa"
-        android:textSize="20sp"
-
-        app:layout_constraintBottom_toTopOf="@+id/userFullName2"
-        app:layout_constraintEnd_toStartOf="@+id/userFullName31"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userFullName12" />
+        app:layout_constraintTop_toBottomOf="@+id/fullName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
