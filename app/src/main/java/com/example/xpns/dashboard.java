@@ -12,8 +12,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -51,27 +53,21 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
 
         if(mAuth.getCurrentUser()!=null){
 
+            userID = mAuth.getUid();
+
+            Toast.makeText(this,"Name is" +mAuth.getCurrentUser() ,Toast.LENGTH_SHORT).show();
+
+
             fStore = FirebaseFirestore.getInstance();
 
 
-            fStore.collection("users").addSnapshotListener(new EventListener<QuerySnapshot>() {
-                @Override
-                public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
+            fStore.collection("users").document(userID).get().addOnSuccessListener(documentSnapshot -> {
+                String user_name = documentSnapshot.getString("fName");
+//                    String password  = documentSnapshot.getString("password");
 
-                    if (e !=null)
-                    {
 
-                    }
+                usernameText.setText(user_name);
 
-                    for (DocumentChange documentChange : documentSnapshots.getDocumentChanges())
-                    {
-                        String   fName =  documentChange.getDocument().getData().get("fName").toString();
-//                        String  isCalender   =  documentChange.getDocument().getData().get("Calender").toString();
-//                        String isEnablelocation = documentChange.getDocument().getData().get("Enable Location").toString();
-                        usernameText.setText(fName);
-
-                    }
-                }
             });
 
 
