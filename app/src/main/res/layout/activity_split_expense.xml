@@ -8,33 +8,6 @@
     tools:context=".add_expense">
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="Test User"
-        android:textColor="@color/primary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amount2" />
-
-    <EditText
-        android:id="@+id/amount2"
-        android:layout_width="205dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Search"
-        android:inputType="textPersonName"
-        android:textColor="#fafafa"
-        android:textColorHint="#9A9A9A"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.368"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
         android:id="@+id/textView"
         android:layout_width="264dp"
         android:layout_height="53dp"
@@ -61,28 +34,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.659" />
 
-    <EditText
-        android:id="@+id/description"
-        android:layout_width="258dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="132dp"
-        android:ems="10"
-        android:hint="Description"
-        android:inputType="textPersonName"
-        android:textColor="#fafafa"
-        android:textColorHint="#9A9A9A"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Split With :"
+        android:textColor="#FAFAFA"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/amount" />
 
     <EditText
         android:id="@+id/amount"
         android:layout_width="258dp"
         android:layout_height="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Amount"
         android:inputType="textPersonName"
@@ -93,11 +63,71 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description" />
 
+    <EditText
+        android:id="@+id/amount2"
+        android:layout_width="205dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Search"
+        android:inputType="textPersonName"
+        android:textColor="#fafafa"
+        android:textColorHint="#9A9A9A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <ImageButton
+        android:id="@+id/search"
+        android:layout_width="54dp"
+        android:layout_height="43dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="44dp"
+        android:backgroundTint="#2E2E2E"
+        android:src="@drawable/ic_baseline_search_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toEndOf="@+id/amount2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:tint="@color/primary" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Test User"
+        android:textColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@+id/submitButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amount2"
+        app:layout_constraintVertical_bias="0.418" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="258dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="104dp"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textPersonName"
+        android:textColor="#fafafa"
+        android:textColorHint="#9A9A9A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <Button
         android:id="@+id/submitButton"
         android:layout_width="254dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="84dp"
         android:background="@drawable/rounded_corners"
         android:onClick="addExpenseButton"
         android:text="ADD"
@@ -107,33 +137,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="Split With :"
-        android:textColor="#FAFAFA"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amount" />
-
-    <ImageButton
-        android:id="@+id/search"
-        android:layout_width="54dp"
-        android:layout_height="43dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="44dp"
-        android:backgroundTint="#2E2E2E"
-        android:src="@drawable/ic_baseline_search_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.093"
-        app:layout_constraintStart_toEndOf="@+id/amount2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:tint="@color/primary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
