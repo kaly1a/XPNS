@@ -8,10 +8,15 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView register;
+    private FirebaseAuth mAuth;
+    FirebaseFirestore fStore ;
 
 
     @Override
@@ -20,13 +25,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        mAuth = FirebaseAuth.getInstance();
+
 
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i=new Intent(MainActivity.this,home.class);
-                startActivity(i);
+                if(mAuth.getCurrentUser()!=null){
+
+                    Intent i=new Intent(MainActivity.this,dashboard.class);
+                    startActivity(i);
+
+                }else{
+
+                    Intent i=new Intent(MainActivity.this,home.class);
+                    startActivity(i);
+
+                }
+
             }
         }, 2000);
     }

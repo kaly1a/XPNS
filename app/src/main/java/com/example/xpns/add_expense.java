@@ -88,11 +88,11 @@ public class add_expense extends AppCompatActivity {
 
 
                 if (TextUtils.isEmpty(expenseDescription)) {
-                    description.setError("Please enter Course Name");
+                    description.setError("Please enter Expense Description");
                 } else if (TextUtils.isEmpty(expenseAmount)) {
-                    amount.setError("Please enter Course Description");
+                    amount.setError("Please enter Expense Amount");
                 } else if (TextUtils.isEmpty(expenseDate)) {
-                    eText.setError("Please enter Course Duration");
+                    eText.setError("Please enter Expense Date");
                 } else {
                     // calling method to add data to Firebase Firestore.
                     addDataToFirestore(userID,expenseDate,expenseDescription, expenseAmount);
@@ -118,14 +118,14 @@ public class add_expense extends AppCompatActivity {
             public void onSuccess(DocumentReference documentReference) {
                 // after the data addition is successful
                 // we are displaying a success toast message.
-                Toast.makeText(add_expense.this, "Your Expense has been added to Firebase Firestore", Toast.LENGTH_SHORT).show();
+                Toast.makeText(add_expense.this, "Your Expense has been added.", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 // this method is called when the data addition process is failed.
                 // displaying a toast message when data addition is failed.
-                Toast.makeText(add_expense.this, "Fail to add course \n" + e, Toast.LENGTH_SHORT).show();
+                Toast.makeText(add_expense.this, "Fail to add Expenses \n" + e, Toast.LENGTH_SHORT).show();
             }
         });
     }

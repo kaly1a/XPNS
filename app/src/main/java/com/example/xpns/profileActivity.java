@@ -8,13 +8,16 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class profileActivity extends AppCompatActivity {
 
@@ -27,6 +30,15 @@ public class profileActivity extends AppCompatActivity {
 
     User user;
 
+    private FirebaseAuth mAuth;
+    FirebaseFirestore fStore ;
+    String userID;
+    TextView fullName;
+    TextView email;
+    TextView mobile;
+
+
+
 
 
 
@@ -36,6 +48,13 @@ public class profileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        fullName = (TextView) findViewById(R.id.fullName);
+        email = (TextView) findViewById(R.id.email);
+        mobile = (TextView) findViewById(R.id.mobNo);
+
+
+        mAuth = FirebaseAuth.getInstance();
+
 //        employeeName = findViewById(R.id.employeeNameBox);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -44,46 +63,43 @@ public class profileActivity extends AppCompatActivity {
 
         user = new User();
 
-//        sendDatabtn = findViewById(R.id.idBtnSendData);
+//        =============================================================
 
-//        sendDatabtn.setOnClickListener((new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                String name = employeeName.getText().toString();
-//
-//                if(TextUtils.isEmpty(name)){
-//                    Toast.makeText(profileActivity.this, "Please add some data.", Toast.LENGTH_SHORT).show();
-//                }else{
-//
-//                    addDatatoFirebase(name);
-//
-//                }
-//            }
-//        }));
+        if(mAuth.getCurrentUser()!=null){
+
+            userID = mAuth.getUid();
+
+//            Toast.makeText(this,"Name is" +mAuth.getCurrentUser().getEmail() ,Toast.LENGTH_SHORT).show();
+
+
+            fStore = FirebaseFirestore.getInstance();
+
+
+            fStore.collection("users").document(mAuth.getCurrentUser().getEmail()).get().addOnSuccessListener(documentSnapshot -> {
+                String user_name = documentSnapshot.getString("fName");
+                fullName.setText(user_name);
+                String user_email = documentSnapshot.getString("email");
+                email.setText(user_email);
+                String user_mobile = documentSnapshot.getString("mobile");
+                mobile.setText(user_mobile);
+
+
+            });
+
+
+        }else{
+            Toast.makeText(this,"Not logged In",Toast.LENGTH_SHORT).show();
+        }
+
+//        =============================================================
+
+
     }
 
 
     private void addDatatoFirebase(String name) {
 
-//
-//
-//        user.setEmployeeName(name);
-//
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                databaseReference.setValue(user);
-//                Toast.makeText(profileActivity.this, "data added", Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//                Toast.makeText(profileActivity.this, "data failed", Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
+
     }
 
 }

@@ -55,7 +55,7 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
 
             userID = mAuth.getUid();
 
-            Toast.makeText(this,"Name is" +mAuth.getCurrentUser().getEmail() ,Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,"Name is" +mAuth.getCurrentUser().getEmail() ,Toast.LENGTH_SHORT).show();
 
 
             fStore = FirebaseFirestore.getInstance();
@@ -78,15 +78,15 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
         switch (view.getId()){
             case R.id.addExpense:
                 startActivity(new Intent(this, com.example.xpns.add_expense.class));
-                Toast.makeText(this,"Add Expense button Working",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,"Add Expense button Working",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.expenses:
                 startActivity(new Intent(this, com.example.xpns.expenses.class));
-                Toast.makeText(this,"Past Bills button Working",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,"Past Bills button Working",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.splitExpenseBtn:
                 startActivity(new Intent(this, com.example.xpns.split_expense.class));
-                Toast.makeText(this,"Split Expense button Working",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,"Split Expense button Working",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.logOut:

@@ -28,9 +28,11 @@ public class expenses extends AppCompatActivity {
 
     FirebaseFirestore db;
     private FirebaseAuth mAuth;
+    String userID;
     String   expenseDescription;
     String   expenseDate;
     String   expenseAmount;
+    String   splitType;
 
 
     @Override
@@ -42,6 +44,7 @@ public class expenses extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        userID = mAuth.getCurrentUser().getUid();
 
 
         init();
@@ -65,6 +68,10 @@ public class expenses extends AppCompatActivity {
         tv3.setText("  Description  ");
         tv3.setTextColor(Color.WHITE);
         tbrow0.addView(tv3);
+//        TextView tv4 = new TextView(this);
+//        tv4.setText("  Split With  ");
+//        tv4.setTextColor(Color.WHITE);
+//        tbrow0.addView(tv4);
         stk.addView(tbrow0);
 //        =========================================================================================
 
@@ -79,47 +86,55 @@ public class expenses extends AppCompatActivity {
                             int i=1;
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-//                                if(mAuth.getCurrentUser().getUid() == document.get("userID").toString()){}
+//                                Toast.makeText(expenses.this, userID + "==" + document.get("userID").toString(), Toast.LENGTH_LONG).show();
+
+                                if(userID.equals(document.get("userID").toString()) ) {
 
 
-                                expenseDescription = document.get("expenseDescription").toString();
-                                expenseDate = document.get("expenseDate").toString();
-                                expenseAmount = document.get("expenseAmount").toString();
+                                    expenseDescription = document.get("expenseDescription").toString();
+                                    expenseDate = document.get("expenseDate").toString();
+                                    expenseAmount = document.get("expenseAmount").toString();
+//                                    splitType = document.get("splitID").toString();
+//                                    Toast.makeText(expenses.this,document.get("splitID").toString() , Toast.LENGTH_LONG).show();
 
-                                TableRow tbrow = new TableRow(expenses.this);
-                                TextView t1v = new TextView(expenses.this);
+                                    TableRow tbrow = new TableRow(expenses.this);
+                                    TextView t1v = new TextView(expenses.this);
 
-                                t1v.setText(" " + i++ + " ");
+                                    t1v.setText(" " + i++ + " ");
 
-                                t1v.setTextColor(Color.WHITE);
-                                t1v.setGravity(Gravity.CENTER);
-                                tbrow.addView(t1v);
-                                TextView t2v = new TextView(expenses.this);
+                                    t1v.setTextColor(Color.WHITE);
+                                    t1v.setGravity(Gravity.START);
+                                    tbrow.addView(t1v);
+                                    TextView t2v = new TextView(expenses.this);
 
-                                t2v.setText(expenseDate);
+                                    t2v.setText(expenseDate);
+                                    t2v.setTextColor(Color.WHITE);
+                                    t2v.setGravity(Gravity.CENTER);
+                                    tbrow.addView(t2v);
 
-                                t2v.setTextColor(Color.WHITE);
-                                t2v.setGravity(Gravity.CENTER);
-                                tbrow.addView(t2v);
+                                    TextView t3v = new TextView(expenses.this);
+                                    t3v.setText("₹" + expenseAmount);
+                                    t3v.setTextColor(Color.WHITE);
+                                    t3v.setGravity(Gravity.START);
+                                    tbrow.addView(t3v);
 
-                                TextView t3v = new TextView(expenses.this);
-                                t3v.setText("₹"+expenseAmount);
+                                    TextView t4v = new TextView(expenses.this);
+                                    t4v.setText(expenseDescription);
+                                    t4v.setTextColor(Color.WHITE);
+                                    t4v.setGravity(Gravity.START);
+                                    tbrow.addView(t4v);
 
-                                t3v.setTextColor(Color.WHITE);
-                                t3v.setGravity(Gravity.CENTER);
-                                tbrow.addView(t3v);
+//                                    TextView t5v = new TextView(expenses.this);
+//                                    t5v.setText(splitType);
+//                                    t5v.setTextColor(Color.WHITE);
+//                                    t5v.setGravity(Gravity.CENTER);
+//                                    tbrow.addView(t5v);
 
-                                TextView t4v = new TextView(expenses.this);
-                                t4v.setText(expenseDescription);
+                                    stk.addView(tbrow);
 
-                                t4v.setTextColor(Color.WHITE);
-                                t4v.setGravity(Gravity.CENTER);
-                                tbrow.addView(t4v);
-
-                                stk.addView(tbrow);
-
-                                Toast.makeText(expenses.this, document.getId() + " => " + document.get("expenseDescription"), Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(expenses.this, document.getId() + " => " + document.get("expenseDescription"), Toast.LENGTH_LONG).show();
 //                                Log.d("dataCHECK", document.getId() + " => " + document.getData());
+                                }
                             }
                         } else {
                             Toast.makeText(expenses.this, "Error getting documents.", Toast.LENGTH_SHORT).show();
