@@ -16,6 +16,7 @@ import android.text.InputType;
 import java.util.Calendar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -46,7 +47,8 @@ public class add_expense extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_expense);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 

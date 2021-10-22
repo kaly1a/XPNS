@@ -1,6 +1,7 @@
 package com.example.xpns;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -43,6 +44,8 @@ public class split_expense extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_split_expense);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
