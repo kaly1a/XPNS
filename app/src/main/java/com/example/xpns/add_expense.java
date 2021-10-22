@@ -110,7 +110,7 @@ public class add_expense extends AppCompatActivity {
         CollectionReference dbCourses = db.collection("expenses");
 
         // adding our data to our courses object class.
-        UserExpense expenses = new UserExpense(userID,expenseDate, expenseDescription, expenseAmount);
+        UserExpense expenses = new UserExpense("NoSplit",userID,expenseDate, expenseDescription, expenseAmount);
 
         // below method is use to add data to Firebase Firestore.
         dbCourses.add(expenses).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -129,7 +129,7 @@ public class add_expense extends AppCompatActivity {
             }
         });
     }
-
+}
 
 
 //    public void addExpenseButton(View view) {
@@ -160,4 +160,4 @@ public class add_expense extends AppCompatActivity {
 //        }
 
 
-    }
+

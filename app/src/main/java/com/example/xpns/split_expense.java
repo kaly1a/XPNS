@@ -85,7 +85,6 @@ public class split_expense extends AppCompatActivity {
                         searchResult.setVisibility(View.VISIBLE);
                     });
                 }
-
             }
         });
 
@@ -117,16 +116,19 @@ public class split_expense extends AppCompatActivity {
                 expenseDescription = (String) description.getText().toString();
                 expenseAmount = (String) amount.getText().toString();
                 expenseDate = (String) eText.getText().toString();
+                userID = mAuth.getCurrentUser().getUid();
+                splitID = searchFieldText;
+
 
                 if (TextUtils.isEmpty(expenseDescription)) {
-                    description.setError("Please enter Course Name");
+                    description.setError("Please enter Description");
                 } else if (TextUtils.isEmpty(expenseAmount)) {
-                    amount.setError("Please enter Course Description");
+                    amount.setError("Please enter amount");
                 } else if (TextUtils.isEmpty(expenseDate)) {
-                    eText.setError("Please enter Course Duration");
+                    eText.setError("Please enter date");
                 } else {
                     // calling method to add data to Firebase Firestore.
-                    addDataToFirestore(expenseDate,expenseDescription, expenseAmount);
+                    addDataToFirestore(splitID,userID,expenseDate,expenseDescription, expenseAmount);
                 }
 
 
@@ -134,30 +136,34 @@ public class split_expense extends AppCompatActivity {
         });
     }
 
-    private void addDataToFirestore(String expenseDate, String expenseDescription, String expenseAmount) {
+    private void addDataToFirestore(String splitID,String userID,String expenseDate, String expenseDescription, String expenseAmount) {
 
         // creating a collection reference
         // for our Firebase Firetore database.
-        CollectionReference dbCourses = db.collection("splitExpenses");
+        CollectionReference dbCourses = db.collection("expenses");
 
         // adding our data to our courses object class.
-        UserExpense expenses = new UserExpense(splitID,userID,expenseDate, expenseDescription, expenseAmount);
 
-        // below method is use to add data to Firebase Firestore.
-        dbCourses.add(expenses).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                // after the data addition is successful
-                // we are displaying a success toast message.
-                Toast.makeText(split_expense.this, "Your Expense has been added to Firebase Firestore", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                // this method is called when the data addition process is failed.
-                // displaying a toast message when data addition is failed.
-                Toast.makeText(split_expense.this, "Fail to add course \n" + e, Toast.LENGTH_SHORT).show();
-            }
-        });
+        if(searchResult.getVisibility()==View.VISIBLE) {
+
+        UserExpense expenses = new UserExpense(splitID,userID,expenseDate, expenseDescription, expenseAmount);
+            dbCourses.add(expenses).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                @Override
+                public void onSuccess(DocumentReference documentReference) {
+                    // after the data addition is successful
+                    // we are displaying a success toast message.
+                    Toast.makeText(split_expense.this, "Your Expense has been added to Firebase Firestore", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    // this method is called when the data addition process is failed.
+                    // displaying a toast message when data addition is failed.
+                    Toast.makeText(split_expense.this, "Fail to add course \n" + e, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+
     }
 }
