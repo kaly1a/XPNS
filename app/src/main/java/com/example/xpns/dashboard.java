@@ -55,13 +55,13 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
 
             userID = mAuth.getUid();
 
-            Toast.makeText(this,"Name is" +mAuth.getCurrentUser() ,Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Name is" +mAuth.getCurrentUser().getEmail() ,Toast.LENGTH_SHORT).show();
 
 
             fStore = FirebaseFirestore.getInstance();
 
 
-            fStore.collection("users").document(userID).get().addOnSuccessListener(documentSnapshot -> {
+            fStore.collection("users").document(mAuth.getCurrentUser().getEmail()).get().addOnSuccessListener(documentSnapshot -> {
                 String user_name = documentSnapshot.getString("fName");
                 usernameText.setText(user_name);
             });

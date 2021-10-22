@@ -30,7 +30,7 @@ import java.util.Map;
 public class split_expense extends AppCompatActivity {
 
     private FirebaseFirestore db;
-    String userID,searchResultText;
+    String userID,searchResultText,splitID;
     private FirebaseAuth mAuth;
     TextView description, amount,searchField;
     Button submitButton;
@@ -58,6 +58,7 @@ public class split_expense extends AppCompatActivity {
 
         searchField = (TextView) findViewById(R.id.searchField);
         searchResult = (TextView) findViewById(R.id.searchResult);
+        searchResult.setVisibility(View.INVISIBLE);
         description = (TextView) findViewById(R.id.description);
         amount = (TextView) findViewById(R.id.amount);
         submitButton = (Button) findViewById(R.id.submitButton);
@@ -78,10 +79,10 @@ public class split_expense extends AppCompatActivity {
 
                     fStore = FirebaseFirestore.getInstance();
 
-
                     fStore.collection("users").document(searchFieldText).get().addOnSuccessListener(documentSnapshot -> {
                         String user_name = documentSnapshot.getString("fName");
                         searchResult.setText(user_name);
+                        searchResult.setVisibility(View.VISIBLE);
                     });
                 }
 
@@ -140,7 +141,7 @@ public class split_expense extends AppCompatActivity {
         CollectionReference dbCourses = db.collection("splitExpenses");
 
         // adding our data to our courses object class.
-        UserExpense expenses = new UserExpense(userID,expenseDate, expenseDescription, expenseAmount);
+        UserExpense expenses = new UserExpense(splitID,userID,expenseDate, expenseDescription, expenseAmount);
 
         // below method is use to add data to Firebase Firestore.
         dbCourses.add(expenses).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

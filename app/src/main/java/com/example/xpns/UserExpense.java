@@ -5,17 +5,19 @@ public class UserExpense {
     private String expenseName, expenseDate, expenseDescription;
     private String expenseAmount;
     private String userID;
+    private String splitID;
 
     public UserExpense() {
 
     }
 
-    public UserExpense(String userID, String expenseDate, String expenseDescription,String expenseAmount) {
+    public UserExpense(String splitID,String userID, String expenseDate, String expenseDescription,String expenseAmount) {
 //        this.expenseName = expenseName;
         this.expenseDate = expenseDate;
         this.expenseDescription = expenseDescription;
         this.expenseAmount = expenseAmount;
         this.userID = userID;
+        this.splitID = splitID;
 
     }
 
@@ -25,6 +27,14 @@ public class UserExpense {
 
     public void setUserID(String userID) {
         this.userID = userID;
+    }
+
+    public String getSplitID() {
+        return splitID;
+    }
+
+    public void setSplitID(String splitID) {
+        this.splitID = splitID;
     }
 
     public String getExpenseAmount() {
