@@ -56,6 +56,7 @@ public class add_expense extends AppCompatActivity {
         amount = (TextView) findViewById(R.id.amount);
         submitButton = (Button) findViewById(R.id.submitButton);
 
+
         eText = (TextView) findViewById(R.id.editTextDate);
         eText.setInputType(InputType.TYPE_NULL);
         eText.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +84,8 @@ public class add_expense extends AppCompatActivity {
                 expenseDescription = (String) description.getText().toString();
                 expenseAmount = (String) amount.getText().toString();
                 expenseDate = (String) eText.getText().toString();
+                userID = mAuth.getCurrentUser().getUid();
+
 
                 if (TextUtils.isEmpty(expenseDescription)) {
                     description.setError("Please enter Course Name");
@@ -92,7 +95,7 @@ public class add_expense extends AppCompatActivity {
                     eText.setError("Please enter Course Duration");
                 } else {
                     // calling method to add data to Firebase Firestore.
-                    addDataToFirestore(expenseDate,expenseDescription, expenseAmount);
+                    addDataToFirestore(userID,expenseDate,expenseDescription, expenseAmount);
                 }
 
 
@@ -100,14 +103,14 @@ public class add_expense extends AppCompatActivity {
         });
     }
 
-    private void addDataToFirestore(String expenseDate, String expenseDescription, String expenseAmount) {
+    private void addDataToFirestore(String userID,String expenseDate, String expenseDescription, String expenseAmount) {
 
         // creating a collection reference
         // for our Firebase Firetore database.
         CollectionReference dbCourses = db.collection("expenses");
 
         // adding our data to our courses object class.
-        UserExpense expenses = new UserExpense(expenseDate, expenseDescription, expenseAmount);
+        UserExpense expenses = new UserExpense(userID,expenseDate, expenseDescription, expenseAmount);
 
         // below method is use to add data to Firebase Firestore.
         dbCourses.add(expenses).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

@@ -4,26 +4,28 @@ public class UserExpense {
 
     private String expenseName, expenseDate, expenseDescription;
     private String expenseAmount;
+    private String userID;
 
     public UserExpense() {
 
     }
 
-    public UserExpense(String expenseDate, String expenseDescription,String expenseAmount) {
+    public UserExpense(String userID, String expenseDate, String expenseDescription,String expenseAmount) {
 //        this.expenseName = expenseName;
         this.expenseDate = expenseDate;
         this.expenseDescription = expenseDescription;
         this.expenseAmount = expenseAmount;
+        this.userID = userID;
 
     }
 
-//    public String getExpenseName() {
-//        return expenseName;
-//    }
-//
-//    public void setExpenseName(String expenseName) {
-//        this.expenseName = expenseName;
-//    }
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 
     public String getExpenseAmount() {
         return expenseAmount;

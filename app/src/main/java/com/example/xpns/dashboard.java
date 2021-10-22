@@ -63,11 +63,7 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
 
             fStore.collection("users").document(userID).get().addOnSuccessListener(documentSnapshot -> {
                 String user_name = documentSnapshot.getString("fName");
-//                    String password  = documentSnapshot.getString("password");
-
-
                 usernameText.setText(user_name);
-
             });
 
 

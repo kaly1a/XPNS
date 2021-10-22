@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,20 +30,25 @@ import java.util.Map;
 public class split_expense extends AppCompatActivity {
 
     private FirebaseFirestore db;
-    String userID;
+    String userID,searchResultText;
     private FirebaseAuth mAuth;
-    TextView description, amount;
+    TextView description, amount,searchField;
     Button submitButton;
 
-    private String expenseDescription, expenseDate;
+    FirebaseFirestore fStore ;
+
+    private String expenseDescription, expenseDate,searchFieldText;
     private String expenseAmount;
 
     DatePickerDialog picker;
     TextView eText;
+    ImageButton searchButton;
+    TextView searchResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_split_expense);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -50,9 +56,38 @@ public class split_expense extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
+        searchField = (TextView) findViewById(R.id.searchField);
+        searchResult = (TextView) findViewById(R.id.searchResult);
         description = (TextView) findViewById(R.id.description);
         amount = (TextView) findViewById(R.id.amount);
         submitButton = (Button) findViewById(R.id.submitButton);
+        searchButton = (ImageButton) findViewById(R.id.search);
+
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchFieldText = (String) searchField.getText().toString();
+
+                if (TextUtils.isEmpty(searchFieldText)) {
+                    searchField.setError("Please enter email to search");
+                }
+                else {
+                    // calling method to search for user.
+//                    FirebaseAuth.auth();
+
+                    fStore = FirebaseFirestore.getInstance();
+
+
+                    fStore.collection("users").document(searchFieldText).get().addOnSuccessListener(documentSnapshot -> {
+                        String user_name = documentSnapshot.getString("fName");
+                        searchResult.setText(user_name);
+                    });
+                }
+
+            }
+        });
+
 
         eText = (TextView) findViewById(R.id.editTextDate);
         eText.setInputType(InputType.TYPE_NULL);
@@ -105,7 +140,7 @@ public class split_expense extends AppCompatActivity {
         CollectionReference dbCourses = db.collection("splitExpenses");
 
         // adding our data to our courses object class.
-        UserExpense expenses = new UserExpense(expenseDate, expenseDescription, expenseAmount);
+        UserExpense expenses = new UserExpense(userID,expenseDate, expenseDescription, expenseAmount);
 
         // below method is use to add data to Firebase Firestore.
         dbCourses.add(expenses).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

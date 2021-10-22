@@ -126,9 +126,10 @@ public class register extends AppCompatActivity implements View.OnClickListener 
 
                             userID = mAuth.getCurrentUser().getUid();
 
-                            DocumentReference documentReference = fStore.collection("users").document(userID);
+                            DocumentReference documentReference = fStore.collection("users").document(emailText);
 
                             Map<String,Object> user = new HashMap<>();
+                            user.put("userID",userID);
                             user.put("fName",usernameText);
                             user.put("email",emailText);
                             user.put("mobile",phoneText);

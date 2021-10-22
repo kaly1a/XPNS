@@ -64,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/description" />
 
     <EditText
-        android:id="@+id/amount2"
+        android:id="@+id/searchField"
         android:layout_width="205dp"
         android:layout_height="45dp"
         android:layout_marginTop="8dp"
@@ -90,21 +90,23 @@
         android:src="@drawable/ic_baseline_search_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
-        app:layout_constraintStart_toEndOf="@+id/amount2"
+        app:layout_constraintStart_toEndOf="@+id/searchField"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:tint="@color/primary" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/searchResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="68dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Test User"
         android:textColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@+id/submitButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amount2" />
+        app:layout_constraintTop_toBottomOf="@+id/searchField"
+        app:layout_constraintVertical_bias="0.418" />
 
     <EditText
         android:id="@+id/description"
