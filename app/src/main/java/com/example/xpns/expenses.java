@@ -79,6 +79,8 @@ public class expenses extends AppCompatActivity {
                             int i=1;
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
+//                                if(mAuth.getCurrentUser().getUid() == document.get("userID").toString()){}
+
 
                                 expenseDescription = document.get("expenseDescription").toString();
                                 expenseDate = document.get("expenseDate").toString();
