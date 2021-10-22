@@ -1,24 +1,31 @@
 package com.example.xpns;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import org.w3c.dom.Text;
@@ -28,11 +35,15 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
     Button  add_expense;
     ImageButton logoutButton;
     ImageButton profileButton;
+    String totalAmount;
+    int totalAmountInt;
+
 
     private FirebaseAuth mAuth;
     FirebaseFirestore fStore ;
     String userID;
     TextView usernameText;
+    TextView displayTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +58,7 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
         logoutButton = (ImageButton) findViewById(R.id.logOut);
         profileButton = (ImageButton) findViewById(R.id.profileButton);
         usernameText = (TextView) findViewById(R.id.usernameText);
+        displayTextView = (TextView) findViewById(R.id.display);
         add_expense.setOnClickListener(this);
         logoutButton.setOnClickListener(this);
         profileButton.setOnClickListener(this);
@@ -70,6 +82,53 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
         }else{
             Toast.makeText(this,"Not logged In",Toast.LENGTH_SHORT).show();
         }
+
+//        ===================================================
+
+
+
+        fStore.collection("expenses")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            int i=1;
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+//                                Toast.makeText(expenses.this, userID + "==" + document.get("userID").toString(), Toast.LENGTH_LONG).show();
+
+                                if(userID.equals(document.get("userID").toString()) ) {
+
+
+                                    totalAmount = document.get("expenseAmount").toString();
+
+                                    totalAmountInt += Integer.parseInt(totalAmount);
+
+                                    displayTextView.setText("₹"+totalAmountInt );
+
+
+
+//                                    splitType = document.get("splitID").toString();
+//                                    Toast.makeText(expenses.this,document.get("splitID").toString() , Toast.LENGTH_LONG).show();
+
+
+
+                                }
+                            }
+                        } else {
+                            Toast.makeText(dashboard.this, "Error getting documents.", Toast.LENGTH_SHORT).show();
+//                            Log.w("dataCHECK1", "Error getting documents.", task.getException());
+                        }
+
+
+                    }
+
+
+                });
+
+
+//        ===================================================
 
     }
 

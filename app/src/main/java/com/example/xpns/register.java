@@ -147,7 +147,7 @@ public class register extends AppCompatActivity implements View.OnClickListener 
 
 
 
-                            startActivity(new Intent(register.this,home.class));
+                            startActivity(new Intent(register.this,dashboard.class));
 
 
 

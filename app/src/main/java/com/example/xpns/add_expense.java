@@ -118,6 +118,7 @@ public class add_expense extends AppCompatActivity {
             public void onSuccess(DocumentReference documentReference) {
                 // after the data addition is successful
                 // we are displaying a success toast message.
+                startActivity(new Intent(add_expense.this,dashboard.class));
                 Toast.makeText(add_expense.this, "Your Expense has been added.", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -132,32 +133,6 @@ public class add_expense extends AppCompatActivity {
 }
 
 
-//    public void addExpenseButton(View view) {
-//
-//
-//
-//
-//
-//            userID = mAuth.getCurrentUser().getUid();
-////            textView.setText(selectedRbText + " is Selected");
-////            Toast.makeText(add_expense.this,userID + " User id Description -" + description.getText().toString() + " Amount-" + amount.getText().toString(),Toast.LENGTH_SHORT).show();
-//
-//            DocumentReference documentReference = fStore.collection("expenses").document(userID);
-//
-//            Map<String, Object> user = new HashMap<>();
-//            user.put("description", description.getText().toString());
-//            user.put("amount", amount.getText().toString());
-//
-//            user.put("date", eText.getText().toString().trim());
-//
-//            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                @Override
-//                public void onSuccess(Void unused) {
-//                    Toast.makeText(add_expense.this, "Added Expense!", Toast.LENGTH_SHORT).show();
-//                    startActivity(new Intent(add_expense.this,dashboard.class));
-//                }
-//            });
-//        }
 
 
 

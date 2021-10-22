@@ -153,6 +153,7 @@ public class split_expense extends AppCompatActivity {
                     // after the data addition is successful
                     // we are displaying a success toast message.
                     Toast.makeText(split_expense.this, "Your Expense has been added to Firebase Firestore", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(split_expense.this,dashboard.class));
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

@@ -1,6 +1,7 @@
 package com.example.xpns;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -47,6 +48,8 @@ public class profileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         fullName = (TextView) findViewById(R.id.fullName);
         email = (TextView) findViewById(R.id.email);
