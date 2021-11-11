@@ -40,6 +40,7 @@ public class past_expenses extends AppCompatActivity {
         //Query
         Query query = firebaseFirestore.collection("expenses").whereEqualTo("userID",userID);
 
+
         //Recycler Option
         FirestoreRecyclerOptions<BillsModel> options = new FirestoreRecyclerOptions.Builder<BillsModel>()
                 .setQuery(query, BillsModel.class)
@@ -52,14 +53,23 @@ public class past_expenses extends AppCompatActivity {
                 return new BillsViewHolder(view);
             }
 
+
+
             @Override
             protected void onBindViewHolder(@NonNull BillsViewHolder holder, int position, @NonNull BillsModel model) {
                 holder.b_date.setText(model.getExpenseDate());
                 holder.b_amount.setText(model.getExpenseAmount());
                 holder.b_desc.setText(model.getExpenseDescription());
 
+
+
             }
+
+
+
         };
+
+
         mFirestoreList.setHasFixedSize(true);
         mFirestoreList.setLayoutManager( new LinearLayoutManager(this));
         mFirestoreList.setAdapter(adapter);
