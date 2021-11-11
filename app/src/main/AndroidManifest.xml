@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XPNS">
         <activity
+            android:name=".pastExpenses"
+            android:exported="false" />
+        <activity
             android:name=".split_expense"
             android:exported="false" />
         <activity

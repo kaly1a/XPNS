@@ -109,13 +109,13 @@ public class expenses extends AppCompatActivity {
 
                                     t2v.setText(expenseDate);
                                     t2v.setTextColor(Color.WHITE);
-                                    t2v.setGravity(Gravity.START);
+                                    t2v.setGravity(Gravity.CENTER);
                                     tbrow.addView(t2v);
 
                                     TextView t3v = new TextView(expenses.this);
                                     t3v.setText("₹" + expenseAmount);
                                     t3v.setTextColor(Color.WHITE);
-                                    t3v.setGravity(Gravity.CENTER);
+                                    t3v.setGravity(Gravity.START);
                                     tbrow.addView(t3v);
 
                                     TextView t4v = new TextView(expenses.this);
