@@ -140,7 +140,7 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
 //                Toast.makeText(this,"Add Expense button Working",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.expenses:
-                startActivity(new Intent(this, com.example.xpns.expenses.class));
+                startActivity(new Intent(this, com.example.xpns.past_expenses.class));
 //                Toast.makeText(this,"Past Bills button Working",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.splitExpenseBtn:
