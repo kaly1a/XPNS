@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -22,6 +23,7 @@ public class past_expenses extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     private RecyclerView mFirestoreList;
     private FirestoreRecyclerAdapter adapter;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +32,13 @@ public class past_expenses extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+        mAuth = FirebaseAuth.getInstance();
+        String userID = mAuth.getCurrentUser().getUid();
+
         firebaseFirestore = FirebaseFirestore.getInstance();
         mFirestoreList = findViewById(R.id.pastExp);
         //Query
-        Query query = firebaseFirestore.collection("expenses");
+        Query query = firebaseFirestore.collection("expenses").whereEqualTo("userID",userID);
 
         //Recycler Option
         FirestoreRecyclerOptions<BillsModel> options = new FirestoreRecyclerOptions.Builder<BillsModel>()
