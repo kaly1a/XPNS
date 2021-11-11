@@ -72,8 +72,7 @@ public class split_expense extends AppCompatActivity {
                     searchField.setError("Please enter email to search");
                 }
                 else {
-                    // calling method to search for user.
-//                    FirebaseAuth.auth();
+
 
                     fStore = FirebaseFirestore.getInstance();
 
@@ -96,7 +95,7 @@ public class split_expense extends AppCompatActivity {
                 int day = cldr.get(Calendar.DAY_OF_MONTH);
                 int month = cldr.get(Calendar.MONTH);
                 int year = cldr.get(Calendar.YEAR);
-                // date picker dialog
+
                 picker = new DatePickerDialog(split_expense.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
@@ -125,7 +124,7 @@ public class split_expense extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(expenseDate)) {
                     eText.setError("Please enter date");
                 } else {
-                    // calling method to add data to Firebase Firestore.
+
                     addDataToFirestore(splitID,userID,expenseDate,expenseDescription, expenseAmount);
                 }
 
@@ -136,11 +135,9 @@ public class split_expense extends AppCompatActivity {
 
     private void addDataToFirestore(String splitID,String userID,String expenseDate, String expenseDescription, String expenseAmount) {
 
-        // creating a collection reference
-        // for our Firebase Firetore database.
+
         CollectionReference dbCourses = db.collection("expenses");
 
-        // adding our data to our courses object class.
 
         if(searchResult.getVisibility()==View.VISIBLE) {
 
@@ -148,16 +145,14 @@ public class split_expense extends AppCompatActivity {
             dbCourses.add(expenses).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
-                    // after the data addition is successful
-                    // we are displaying a success toast message.
+
                     Toast.makeText(split_expense.this, "Your Expense has been added to Firebase Firestore", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(split_expense.this,dashboard.class));
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    // this method is called when the data addition process is failed.
-                    // displaying a toast message when data addition is failed.
+
                     Toast.makeText(split_expense.this, "Fail to add course \n" + e, Toast.LENGTH_SHORT).show();
                 }
             });
