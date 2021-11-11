@@ -35,6 +35,9 @@ public class groups extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         String userID = mAuth.getCurrentUser().getUid();
+        FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+        CollectionReference yourCollRef = rootRef.collection("groups");
+        Query query = yourCollRef.whereEqualTo("memberEmail", userID);
 
 
 
@@ -42,4 +45,5 @@ public class groups extends AppCompatActivity {
     public void onClick(View view) {
         startActivity(new Intent(this, com.example.xpns.creatGroup.class));
         }
+
 }
