@@ -76,7 +76,7 @@
         android:layout_height="60dp"
         android:ems="10"
         android:fontFamily="@font/montserrat"
-        android:hint="Select Time"
+        android:hint="Time"
         android:inputType="date"
         android:textColor="#FAFAFA"
         android:textColorHint="#FAFAFA"
