@@ -7,9 +7,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.text.InputType;
@@ -25,9 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class add_expense extends AppCompatActivity {
 
@@ -52,7 +46,7 @@ public class add_expense extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        description = (TextView) findViewById(R.id.description);
+        description = (TextView) findViewById(R.id.groupName);
         amount = (TextView) findViewById(R.id.amount);
         submitButton = (Button) findViewById(R.id.submitButton);
 

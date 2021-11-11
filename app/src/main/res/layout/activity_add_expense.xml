@@ -34,10 +34,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        app:layout_constraintTop_toBottomOf="@+id/groupName" />
 
     <EditText
-        android:id="@+id/description"
+        android:id="@+id/groupName"
         android:layout_width="258dp"
         android:layout_height="48dp"
         android:layout_marginTop="148dp"
@@ -60,7 +60,7 @@
         android:inputType="date"
         android:textColor="#FAFAFA"
         android:textColorHint="#FAFAFA"
-        app:layout_constraintBottom_toTopOf="@+id/description"
+        app:layout_constraintBottom_toTopOf="@+id/groupName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"

@@ -24,8 +24,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 
 public class split_expense extends AppCompatActivity {
 
@@ -59,7 +57,7 @@ public class split_expense extends AppCompatActivity {
         searchField = (TextView) findViewById(R.id.searchField);
         searchResult = (TextView) findViewById(R.id.searchResult);
         searchResult.setVisibility(View.INVISIBLE);
-        description = (TextView) findViewById(R.id.description);
+        description = (TextView) findViewById(R.id.groupName);
         amount = (TextView) findViewById(R.id.amount);
         submitButton = (Button) findViewById(R.id.submitButton);
         searchButton = (ImageButton) findViewById(R.id.search);
