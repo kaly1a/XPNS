@@ -1,6 +1,7 @@
 package com.example.xpns;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,8 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 import android.text.InputType;
+
+import java.time.Clock;
 import java.util.Calendar;
 
 import androidx.annotation.NonNull;
@@ -34,8 +38,10 @@ public class add_expense extends AppCompatActivity {
     private String expenseDescription, expenseDate;
     private String expenseAmount;
 
+    TimePickerDialog tpicker;
     DatePickerDialog picker;
     TextView eText;
+    TextView tText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,27 @@ public class add_expense extends AppCompatActivity {
         description = (TextView) findViewById(R.id.groupName);
         amount = (TextView) findViewById(R.id.amount);
         submitButton = (Button) findViewById(R.id.submitButton);
+
+        tText = (TextView) findViewById(R.id.editTextTIme);
+        tText.setInputType(InputType.TYPE_NULL);
+        tText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar calendar = Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int min = calendar.get(Calendar.MINUTE);
+
+                tpicker = new TimePickerDialog(add_expense.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                                tText.setText(i + ":" + i1);
+                            }
+                        }, hour, min, true);
+
+                tpicker.show();
+            }
+        });
 
 
         eText = (TextView) findViewById(R.id.editTextDate);
@@ -68,6 +95,7 @@ public class add_expense extends AppCompatActivity {
                                 eText.setText(dayOfMonth + "/" + ( monthOfYear + 1 ) + "/" + year);
                             }
                         }, year, month, day);
+
                 picker.show();
             }
         });
