@@ -63,6 +63,35 @@ public class creatGroup extends AppCompatActivity {
         TextView textView2 =(TextView) findViewById(R.id.textView2);
         EditText grpname = (EditText) findViewById(R.id.groupName);
         ImageView grpIco = (ImageView) findViewById(R.id.groupIco);
+        searchField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int i, int i1, int i2) {
+                searchFieldText = (String)searchField.getText().toString();
+                if (TextUtils.isEmpty(searchFieldText)) {
+                    searchField.setError("Please enter email to search");
+                }
+                else {
+
+                    fStore = FirebaseFirestore.getInstance();
+
+                    fStore.collection("users").document(searchFieldText).get().addOnSuccessListener(documentSnapshot -> {
+                        String user_name = documentSnapshot.getString("fName");
+                        searchResult.setText(user_name);
+                        searchResult.setVisibility(View.VISIBLE);
+                    });
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
         grpname.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
