@@ -157,6 +157,9 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
 //                Toast.makeText(this,"Dashboard button Working",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, com.example.xpns.profileActivity.class));
                 break;
+            case R.id.groupBtn:
+                startActivity(new Intent(this, com.example.xpns.groups.class));
+                break;
 
         }
 

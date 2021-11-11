@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XPNS">
         <activity
+            android:name=".creatGroup"
+            android:exported="false" />
+        <activity
+            android:name=".groups"
+            android:exported="false" />
+        <activity
             android:name=".pastExpenses"
             android:exported="false" />
         <activity
