@@ -214,15 +214,21 @@ public class groups extends AppCompatActivity {
 
 
     }
-//    public void onGrpClick(View view)
-//    {
-//        Intent intent = new Intent(this, groupDetails.class);
-//        Bundle extras = new Bundle();
-//        extras.putStringArrayList("memberEmail", memberEmail);
-//        extras.putString("grpName","");
-//        intent.putExtras(extras);
-//        startActivity(intent);
-//    }
+    public void onGrpClick(View view) {
+        switch (view.getId()) {
+            case R.id.group1:
+                startActivity(new Intent(this, com.example.xpns.add_expense.class));
+                break;
+            case R.id.group2:
+                startActivity(new Intent(this, com.example.xpns.past_expenses.class));
+                break;
+            case R.id.group3:
+                startActivity(new Intent(this, com.example.xpns.split_expense.class));
+                break;
+        }
+    }
+
+
     public void onClick(View view) {
         startActivity(new Intent(this, com.example.xpns.creatGroup.class));
         }
