@@ -13,7 +13,6 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import android.text.InputType;
 
-import java.time.Clock;
 import java.util.Calendar;
 
 import androidx.annotation.NonNull;
@@ -52,8 +51,8 @@ public class add_expense extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        description = (TextView) findViewById(R.id.groupName);
-        amount = (TextView) findViewById(R.id.amount);
+        description = (TextView) findViewById(R.id.loanDesc);
+        amount = (TextView) findViewById(R.id.loanAmount);
         submitButton = (Button) findViewById(R.id.submitButton);
 
         tText = (TextView) findViewById(R.id.editTextTIme);

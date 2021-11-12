@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/amount"
+        android:id="@+id/loanAmount"
         android:layout_width="258dp"
         android:layout_height="48dp"
         android:layout_marginTop="28dp"
@@ -35,10 +35,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groupName" />
+        app:layout_constraintTop_toBottomOf="@+id/loanDesc" />
 
     <EditText
-        android:id="@+id/groupName"
+        android:id="@+id/loanDesc"
         android:layout_width="258dp"
         android:layout_height="48dp"
         android:layout_marginTop="148dp"
@@ -63,7 +63,7 @@
         android:inputType="date"
         android:textColor="#FAFAFA"
         android:textColorHint="#FAFAFA"
-        app:layout_constraintBottom_toTopOf="@+id/groupName"
+        app:layout_constraintBottom_toTopOf="@+id/loanDesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.254"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
         android:inputType="date"
         android:textColor="#FAFAFA"
         android:textColorHint="#FAFAFA"
-        app:layout_constraintBottom_toTopOf="@+id/groupName"
+        app:layout_constraintBottom_toTopOf="@+id/loanDesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.738"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,6 +100,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amount" />
+        app:layout_constraintTop_toBottomOf="@+id/loanAmount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

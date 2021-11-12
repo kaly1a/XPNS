@@ -31,7 +31,7 @@
         android:inputType="date"
         android:textColor="#FAFAFA"
         android:textColorHint="#a3a3a3"
-        app:layout_constraintBottom_toTopOf="@+id/groupName"
+        app:layout_constraintBottom_toTopOf="@+id/loanDesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.254"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:inputType="date"
         android:textColor="#FAFAFA"
         android:textColorHint="#a3a3a3"
-        app:layout_constraintBottom_toTopOf="@+id/groupName"
+        app:layout_constraintBottom_toTopOf="@+id/loanDesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.738"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
         app:layout_constraintVertical_bias="0.738" />
 
     <EditText
-        android:id="@+id/groupName"
+        android:id="@+id/loanDesc"
         android:layout_width="258dp"
         android:layout_height="48dp"
         android:layout_marginTop="104dp"
@@ -80,10 +80,10 @@
         android:text="Split With :"
         android:textColor="#a3a3a3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amount" />
+        app:layout_constraintTop_toBottomOf="@+id/loanAmount" />
 
     <EditText
-        android:id="@+id/amount"
+        android:id="@+id/loanAmount"
         android:layout_width="258dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
@@ -95,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groupName" />
+        app:layout_constraintTop_toBottomOf="@+id/loanDesc" />
 
     <EditText
         android:id="@+id/searchField"
@@ -158,7 +158,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/creatGroup"
+        android:id="@+id/reqLoan"
         android:layout_width="254dp"
         android:layout_height="56dp"
         android:layout_marginBottom="84dp"

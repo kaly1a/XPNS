@@ -160,6 +160,12 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
             case R.id.groupBtn:
                 startActivity(new Intent(this, com.example.xpns.groups.class));
                 break;
+            case R.id.reqLoanBtn:
+                startActivity(new Intent(this, com.example.xpns.reqLoan.class));
+                break;
+            case R.id.creatGrp:
+                startActivity(new Intent(this, com.example.xpns.creatGroup.class));
+                break;
 
         }
 

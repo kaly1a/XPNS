@@ -1,6 +1,5 @@
 package com.example.xpns;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,10 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -62,7 +59,7 @@ public class creatGroup extends AppCompatActivity {
         imageButtonGreen.setVisibility(View.INVISIBLE);
 
         List<String> memberEmail=new ArrayList<String>();
-        EditText groupName = (EditText) findViewById(R.id.groupName);
+        EditText groupName = (EditText) findViewById(R.id.loanDesc);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,7 +126,7 @@ public class creatGroup extends AppCompatActivity {
             }
         });
         TextView textView2 =(TextView) findViewById(R.id.textView2);
-        EditText grpname = (EditText) findViewById(R.id.groupName);
+        EditText grpname = (EditText) findViewById(R.id.loanDesc);
         ImageView grpIco = (ImageView) findViewById(R.id.groupIco);
         searchField.addTextChangedListener(new TextWatcher() {
             @Override

@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/creatGroup"
+        android:id="@+id/reqLoan"
         android:layout_width="254dp"
         android:layout_height="56dp"
         android:layout_marginBottom="84dp"

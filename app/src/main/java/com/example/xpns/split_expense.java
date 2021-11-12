@@ -64,8 +64,8 @@ public class split_expense extends AppCompatActivity {
         searchResult = (TextView) findViewById(R.id.searchResult);
         searchResult.setVisibility(View.INVISIBLE);
 
-        description = (TextView) findViewById(R.id.groupName);
-        amount = (TextView) findViewById(R.id.amount);
+        description = (TextView) findViewById(R.id.loanDesc);
+        amount = (TextView) findViewById(R.id.loanAmount);
         submitButton = (Button) findViewById(R.id.submitButton);
         searchButton = (ImageButton) findViewById(R.id.search);
 //        imageButtonGreen = (ImageButton) findViewById(R.id.imageButtonGreen);
