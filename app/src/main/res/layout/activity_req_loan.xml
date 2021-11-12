@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark"
+    tools:context=".add_expense">
+
+    <TextView
+        android:id="@+id/grpName"
+        android:layout_width="264dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="REQUEST LOAN"
+        android:textAlignment="center"
+        android:textColor="@color/primary"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/groupName"
+        android:layout_width="258dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textPersonName"
+        android:textColor="#fafafa"
+        android:textColorHint="#9A9A9A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grpName" />
+
+    <TextView
+        android:id="@+id/searchResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Test User"
+        android:textColor="@color/primary"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchField" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Request To :"
+        android:textColor="#a3a3a3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amount" />
+
+    <EditText
+        android:id="@+id/searchField"
+        android:layout_width="205dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Search"
+        android:inputType="textPersonName"
+        android:textColor="#fafafa"
+        android:textColorHint="#9A9A9A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="258dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Amount"
+        android:inputType="textPersonName"
+        android:textColor="#fafafa"
+        android:textColorHint="#9A9A9A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groupName" />
+
+
+    <ImageButton
+        android:id="@+id/search"
+        android:layout_width="54dp"
+        android:layout_height="43dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="44dp"
+        android:backgroundTint="#2E2E2E"
+        android:src="@drawable/ic_baseline_search_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toEndOf="@+id/searchField"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:tint="@color/primary" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="254dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="84dp"
+        android:background="@drawable/rounded_corners"
+        android:text="SPLIT"
+        android:textColor="#1B1B1B"
+        app:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/creatGroup"
+        android:layout_width="254dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="84dp"
+        android:background="@drawable/rounded_corners"
+        android:text="SPLIT"
+        android:textColor="#1B1B1B"
+        app:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/submitBut"
+        android:layout_width="254dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="84dp"
+        android:background="@drawable/rounded_corners"
+        android:text="Send Request"
+        android:textColor="#1B1B1B"
+        app:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButtonRed"-->
+<!--        android:layout_width="25dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:backgroundTint="@color/dark"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imageButtonGreen"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/searchField"-->
+<!--        app:srcCompat="@android:drawable/ic_delete" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButtonGreen"-->
+<!--        android:layout_width="25dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:backgroundTint="@color/dark"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/searchResult"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/searchField"-->
+<!--        app:srcCompat="@android:drawable/ic_input_add" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

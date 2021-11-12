@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XPNS">
         <activity
+            android:name=".reqLoan"
+            android:exported="false" />
+        <activity
             android:name=".groupDetails"
             android:exported="false" />
         <activity
