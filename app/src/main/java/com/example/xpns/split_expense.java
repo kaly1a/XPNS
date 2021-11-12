@@ -37,7 +37,7 @@ public class split_expense extends AppCompatActivity {
 
     FirebaseFirestore fStore ;
 
-    private String expenseDescription, expenseDate,searchFieldText;
+    private String expenseDescription, expenseDate,searchFieldText,expenseTime;
     private String expenseAmount;
 
     DatePickerDialog picker;
@@ -195,7 +195,7 @@ public class split_expense extends AppCompatActivity {
 
         if(searchResult.getVisibility()==View.VISIBLE) {
 
-        UserExpense expenses = new UserExpense(splitID,userID,expenseDate, expenseDescription, expenseAmount);
+        UserExpense expenses = new UserExpense(splitID,userID,expenseDate,expenseTime, expenseDescription, expenseAmount);
             dbCourses.add(expenses).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {

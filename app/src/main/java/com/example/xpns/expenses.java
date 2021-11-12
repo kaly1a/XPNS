@@ -31,6 +31,7 @@ public class expenses extends AppCompatActivity {
     String userID;
     String   expenseDescription;
     String   expenseDate;
+    String   expenseTime;
     String   expenseAmount;
     String   splitType;
 
