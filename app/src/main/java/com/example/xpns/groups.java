@@ -102,6 +102,7 @@ public class groups extends AppCompatActivity {
 
 
                                     groupName = document.get("groupName").toString();
+
                                     count = document.get("memberCount").toString();
 
 //                                    Toast.makeText(groups.this, document.get("groupName").toString(), Toast.LENGTH_LONG).show();
@@ -116,7 +117,7 @@ public class groups extends AppCompatActivity {
                                         groupico1.setVisibility(View.VISIBLE);
 
                                         group1.setText(getString(R.string.groupName)+ " " +groupName.toUpperCase());
-                                        member1.setText("Count: " + count);
+                                        member1.setText("Members : " + count);
                                         String s =groupName;
 
                                         if(s.toString().toLowerCase(Locale.ROOT).equals("food") || s.toString().toLowerCase(Locale.ROOT).equals("burger"))
@@ -146,7 +147,7 @@ public class groups extends AppCompatActivity {
                                         groupico2.setVisibility(View.VISIBLE);
 
                                         group2.setText(getString(R.string.groupName)+ " " + groupName.toUpperCase());
-                                        member2.setText("Count: " + count);
+                                        member2.setText("Members : " + count);
 
                                         String s =groupName;
 
@@ -176,8 +177,8 @@ public class groups extends AppCompatActivity {
                                         member3.setVisibility(View.VISIBLE);
                                         groupico3.setVisibility(View.VISIBLE);
 
-                                        group3.setText(getString(R.string.groupName)+ " " +groupName.toUpperCase());
-                                        member3.setText("Count: " + count);
+                                        group3.setText(getString(R.string.groupName)+ "" +groupName.toUpperCase());
+                                        member3.setText("Members : " + count);
 
                                         String s =groupName;
 
@@ -213,6 +214,15 @@ public class groups extends AppCompatActivity {
 
 
     }
+//    public void onGrpClick(View view)
+//    {
+//        Intent intent = new Intent(this, groupDetails.class);
+//        Bundle extras = new Bundle();
+//        extras.putStringArrayList("memberEmail", memberEmail);
+//        extras.putString("grpName","");
+//        intent.putExtras(extras);
+//        startActivity(intent);
+//    }
     public void onClick(View view) {
         startActivity(new Intent(this, com.example.xpns.creatGroup.class));
         }

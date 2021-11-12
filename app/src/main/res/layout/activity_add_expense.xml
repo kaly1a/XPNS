@@ -8,7 +8,7 @@
     tools:context=".add_expense">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/grpName"
         android:layout_width="264dp"
         android:layout_height="53dp"
         android:layout_marginTop="88dp"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/grpName" />
 
     <EditText
         android:id="@+id/editTextDate"
@@ -67,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.254"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/grpName"
         app:layout_constraintVertical_bias="0.738" />
 
     <EditText
@@ -76,7 +76,7 @@
         android:layout_height="60dp"
         android:ems="10"
         android:fontFamily="@font/montserrat"
-        android:hint="Time"
+        android:hint="Select Time"
         android:inputType="date"
         android:textColor="#FAFAFA"
         android:textColorHint="#FAFAFA"
@@ -84,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.738"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/grpName"
         app:layout_constraintVertical_bias="0.738" />
 
     <Button

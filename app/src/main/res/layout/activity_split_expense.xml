@@ -8,7 +8,7 @@
     tools:context=".add_expense">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/grpName"
         android:layout_width="264dp"
         android:layout_height="53dp"
         android:layout_marginTop="88dp"
@@ -33,7 +33,7 @@
         app:layout_constraintBottom_toTopOf="@+id/groupName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/grpName"
         app:layout_constraintVertical_bias="0.659" />
 
     <EditText
@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/grpName" />
 
     <TextView
         android:id="@+id/textView2"
