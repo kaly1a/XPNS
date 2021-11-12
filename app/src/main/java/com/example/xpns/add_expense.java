@@ -120,8 +120,6 @@ public class add_expense extends AppCompatActivity {
                     // calling method to add data to Firebase Firestore.
                     addDataToFirestore(userID,expenseDate,expenseTime,expenseDescription, expenseAmount);
                 }
-
-
             }
         });
     }

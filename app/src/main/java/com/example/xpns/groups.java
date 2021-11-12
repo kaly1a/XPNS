@@ -37,6 +37,7 @@ public class groups extends AppCompatActivity {
     ImageView groupico1,groupico2,groupico3;
     FirebaseFirestore db;
     String groupName;
+    String groupName1,groupName2,groupName3;
     String count;
 
 
@@ -119,6 +120,7 @@ public class groups extends AppCompatActivity {
                                         group1.setText(getString(R.string.groupName)+ " " +groupName.toUpperCase());
                                         member1.setText("Members : " + count);
                                         String s =groupName;
+                                        groupName1=groupName;
 
                                         if(s.toString().toLowerCase(Locale.ROOT).equals("food") || s.toString().toLowerCase(Locale.ROOT).equals("burger"))
                                         {
@@ -148,7 +150,7 @@ public class groups extends AppCompatActivity {
 
                                         group2.setText(getString(R.string.groupName)+ " " + groupName.toUpperCase());
                                         member2.setText("Members : " + count);
-
+                                        groupName2=groupName;
                                         String s =groupName;
 
                                         if(s.toString().toLowerCase(Locale.ROOT).equals("food") || s.toString().toLowerCase(Locale.ROOT).equals("burger"))
@@ -179,7 +181,7 @@ public class groups extends AppCompatActivity {
 
                                         group3.setText(getString(R.string.groupName)+ "" +groupName.toUpperCase());
                                         member3.setText("Members : " + count);
-
+                                        groupName3=groupName;
                                         String s =groupName;
 
                                         if(s.toString().toLowerCase(Locale.ROOT).equals("food") || s.toString().toLowerCase(Locale.ROOT).equals("burger"))
@@ -214,19 +216,22 @@ public class groups extends AppCompatActivity {
 
 
     }
-//    public void onGrpClick(View view) {
-//        switch (view.getId()) {
-//            case R.id.group1:
-//                startActivity(new Intent(this, com.example.xpns.groupDetails.class));
-//                break;
-//            case R.id.group2:
-//                startActivity(new Intent(this, com.example.xpns.groupDetails.class));
-//                break;
-//            case R.id.group3:
-//                startActivity(new Intent(this, com.example.xpns.groupDetails.class));
-//                break;
-//        }
-//    }
+    public void onGrpClick(View view) {
+        Intent myIntent = new Intent(this, com.example.xpns.groupDetails.class);
+        switch (view.getId()) {
+            case R.id.group1:
+                myIntent.putExtra("groupName",groupName1);
+                break;
+            case R.id.group2:
+                myIntent.putExtra("groupName",groupName2);
+                break;
+            case R.id.group3:
+                myIntent.putExtra("groupName",groupName3);
+                break;
+        }
+
+        startActivity(myIntent);
+    }
 
 
     public void onClick(View view) {

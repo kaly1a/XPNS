@@ -190,6 +190,7 @@ public class split_expense extends AppCompatActivity {
                 expenseDescription = (String) description.getText().toString();
                 expenseAmount = (String) amount.getText().toString();
                 expenseDate = (String) eText.getText().toString();
+                expenseTime = (String) tText.getText().toString();
                 userID = mAuth.getCurrentUser().getUid();
                 splitID = searchFieldText;
 
@@ -202,7 +203,7 @@ public class split_expense extends AppCompatActivity {
                     eText.setError("Please enter date");
                 } else {
 
-                    addDataToFirestore(splitID,userID,expenseDate,expenseDescription, expenseAmount);
+                    addDataToFirestore(splitID,userID,expenseDate,expenseTime,expenseDescription, expenseAmount);
                 }
 
 
@@ -210,7 +211,7 @@ public class split_expense extends AppCompatActivity {
         });
     }
 
-    private void addDataToFirestore(String splitID,String userID,String expenseDate, String expenseDescription, String expenseAmount) {
+    private void addDataToFirestore(String splitID,String userID,String expenseDate,String expenseTime, String expenseDescription, String expenseAmount) {
 
 
         CollectionReference dbCourses = db.collection("expenses");
