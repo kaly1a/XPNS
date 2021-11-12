@@ -55,6 +55,7 @@ public class creatGroup extends AppCompatActivity {
         searchButton = (ImageButton) findViewById(R.id.search);
         searchResult.setVisibility(View.INVISIBLE);
         submitButton = (Button) findViewById(R.id.submitBut);
+        mAuth = FirebaseAuth.getInstance();
         imageButtonGreen = (ImageButton) findViewById(R.id.imageButtonGreen);
         imageButtonRed = (ImageButton) findViewById(R.id.imageButtonRed);
         imageButtonRed.setVisibility(View.INVISIBLE);
@@ -203,9 +204,6 @@ public class creatGroup extends AppCompatActivity {
         userID = mAuth.getCurrentUser().getUid();
 
 
-//        CollectionReference dbCourses = db.collection("groups");
-
-
         if(searchResult.getVisibility()==View.VISIBLE) {
 
             DocumentReference documentReference = fStore.collection("groups").document(groupName);
@@ -214,32 +212,18 @@ public class creatGroup extends AppCompatActivity {
             groups.put("userID",userID);
             groups.put("groupName",groupName);
             groups.put("memberEmail",memberEmail);
+            groups.put("memberCount",memberEmail.size());
 
 
             documentReference.set(groups).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
-                    Toast.makeText(creatGroup.this,"User Full Update!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(creatGroup.this,"Group Added!",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(creatGroup.this,dashboard.class));
                 }
             });
 
-//            UserGroups groups = new UserGroups(userID,groupName,memberEmail);
-//            dbCourses.add(groups).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                @Override
-//                public void onSuccess(DocumentReference documentReference) {
-//
-//                    Toast.makeText(creatGroup.this, "Your Expense has been added to Firebase Firestore", Toast.LENGTH_SHORT).show();
-//                    startActivity(new Intent(creatGroup.this,dashboard.class));
-//                }
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception e) {
-//
-//                    Toast.makeText(creatGroup.this, "Fail to add group \n" + e, Toast.LENGTH_SHORT).show();
-//                }
-//            });
         }
-
 
     }
 

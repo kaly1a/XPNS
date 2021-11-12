@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">XPNS</string>
+    <string name="memberCount">Member_Count: </string>
+    <string name="groupName">Group Name: </string>
 </resources>
