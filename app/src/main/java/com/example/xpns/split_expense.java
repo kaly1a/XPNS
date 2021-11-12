@@ -121,6 +121,14 @@ public class split_expense extends AppCompatActivity {
 //                        imageButtonGreen.setVisibility(View.VISIBLE);
                     });
 
+                    fStore.collection("groups").document(searchFieldText).get().addOnSuccessListener(documentSnapshot -> {
+                        String group_name = documentSnapshot.getString("groupName");
+                        searchResult.setText(group_name);
+                        searchResult.setVisibility(View.VISIBLE);
+//                        imageButtonRed.setVisibility(View.VISIBLE);
+//                        imageButtonGreen.setVisibility(View.VISIBLE);
+                    });
+
                 }
 
             }
