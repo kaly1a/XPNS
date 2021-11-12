@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -40,8 +42,10 @@ public class split_expense extends AppCompatActivity {
     private String expenseDescription, expenseDate,searchFieldText,expenseTime;
     private String expenseAmount;
 
+    TimePickerDialog tpicker;
     DatePickerDialog picker;
     TextView eText;
+    TextView tText;
     ImageButton searchButton,imageButtonGreen,imageButtonRed;
     TextView searchResult;
 
@@ -69,7 +73,26 @@ public class split_expense extends AppCompatActivity {
 //        imageButtonRed.setVisibility(View.INVISIBLE);
 //        imageButtonGreen.setVisibility(View.INVISIBLE);
 
+        tText = (TextView) findViewById(R.id.editTextTIme);
+        tText.setInputType(InputType.TYPE_NULL);
+        tText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar calendar = Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int min = calendar.get(Calendar.MINUTE);
 
+                tpicker = new TimePickerDialog(split_expense.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                                tText.setText(i + ":" + i1);
+                            }
+                        }, hour, min, true);
+
+                tpicker.show();
+            }
+        });
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
