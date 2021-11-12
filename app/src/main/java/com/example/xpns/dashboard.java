@@ -104,7 +104,8 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                                     totalAmount = document.get("expenseAmount").toString();
 
                                     totalAmountInt += Integer.parseInt(totalAmount);
-
+                                    if(totalAmountInt>0)
+                                        displayTextView.getForeground(@col);
                                     displayTextView.setText("₹"+totalAmountInt );
 
 
