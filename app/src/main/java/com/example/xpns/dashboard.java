@@ -104,9 +104,13 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
                                     totalAmount = document.get("expenseAmount").toString();
 
                                     totalAmountInt += Integer.parseInt(totalAmount);
-                                    if(totalAmountInt>0)
-                                        displayTextView.getForeground(@col);
                                     displayTextView.setText("₹"+totalAmountInt );
+                                    if(totalAmountInt>0)
+                                    {displayTextView.setTextColor(Color.parseColor("#3edf8e"));}
+                                    else if (totalAmountInt<0)
+                                    {displayTextView.setTextColor(Color.parseColor("#eb3639"));}
+                                    else
+                                    {displayTextView.setTextColor(Color.parseColor("#ffffff"));}
 
 
 
